@@ -105,6 +105,41 @@ if (menu && navigation) {
   });
 }
 
+
+const themeToggle = byId("theme-toggle");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(isNight) {
+  document.body.classList.toggle("night-mode", isNight);
+
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-pressed", String(isNight));
+    themeToggle.setAttribute(
+      "aria-label",
+      isNight ? "Switch to day mode" : "Switch to night mode"
+    );
+    themeToggle.title = isNight
+      ? "Tap the moon to return to day mode"
+      : "Tap the sun to switch to night mode";
+  }
+
+  if (themeColor) {
+    themeColor.setAttribute("content", isNight ? "#071426" : "#087d9b");
+  }
+}
+
+const savedTheme = localStorage.getItem("reiInvitationTheme");
+const prefersNight = window.matchMedia("(prefers-color-scheme: dark)").matches;
+applyTheme(savedTheme ? savedTheme === "night" : prefersNight);
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const isNight = !document.body.classList.contains("night-mode");
+    applyTheme(isNight);
+    localStorage.setItem("reiInvitationTheme", isNight ? "night" : "day");
+  });
+}
+
 window.addEventListener("load", () => {
   setTimeout(() => {
     const intro = byId("intro");

@@ -11,8 +11,6 @@ const AMAZON_WISHLIST_URL =
 const GOOGLE_MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Charlestown+Township+Park+Phoenixville+PA";
 
-const FAMILY_WORD = "voyage3";
-
 const byId = (id) => document.getElementById(id);
 
 /**

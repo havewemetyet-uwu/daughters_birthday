@@ -187,52 +187,6 @@ if (menu && navigation) {
 }
 
 /**
- * Keepsake access screen.
- */
-const keepsakeForm = byId("keepsake-form");
-
-if (keepsakeForm) {
-  keepsakeForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const passwordInput = byId("keepsake-password");
-    const enteredWord = passwordInput
-      ? passwordInput.value.trim()
-      : "";
-
-    if (enteredWord.toLowerCase() === FAMILY_WORD.toLowerCase()) {
-      const lock = byId("keepsake-lock");
-      const content = byId("keepsake-content");
-
-      if (lock) {
-        lock.hidden = true;
-      }
-
-      if (content) {
-        content.hidden = false;
-      }
-
-      sessionStorage.setItem("reiKeepsakeOpen", "yes");
-    } else {
-      alert("That family word did not match.");
-    }
-  });
-}
-
-if (sessionStorage.getItem("reiKeepsakeOpen") === "yes") {
-  const lock = byId("keepsake-lock");
-  const content = byId("keepsake-content");
-
-  if (lock) {
-    lock.hidden = true;
-  }
-
-  if (content) {
-    content.hidden = false;
-  }
-}
-
-/**
  * Opening animation.
  */
 window.addEventListener("load", () => {

@@ -1,1 +1,248 @@
-const PARTY_DATE=new Date("2026-08-30T10:30:00-04:00"),GOOGLE_FORM_URL="https://docs.google.com/forms/d/1n7_AI0NmozvJxhfVNjIfUUvdejKJm9evQteUpys-kzM/edit",TEXT_MESSAGE_URL="+4844479344",AMAZON_WISHLIST_URL="https://www.amazon.com/registries/gl/guest-view/2M1QA4N4GXYK2?ref_=cm_sw_r_cp_ud_ggr-subnav-share_F1T2PF900QRPXZ183YT4",GOOGLE_MAPS_URL="https://www.google.com/maps/search/?api=1&query=Charlestown+Township+Park+Phoenixville+PA",FAMILY_WORD="voyage3";const byId=id=>document.getElementById(id);function activateLink(id,url){const el=byId(id);if(el&&url){el.href=url;el.classList.remove("disabled-link")}}activateLink("form-button",GOOGLE_FORM_URL);activateLink("text-button",TEXT_MESSAGE_URL);activateLink("wishlist-button",AMAZON_WISHLIST_URL);activateLink("maps-button",GOOGLE_MAPS_URL);document.querySelectorAll(".disabled-link").forEach(link=>link.addEventListener("click",e=>{if(link.getAttribute("href")==="#"){e.preventDefault();alert("This link will be added soon.")}}));const photo=byId("rei-photo"),placeholder=byId("photo-placeholder");photo.addEventListener("load",()=>placeholder.hidden=true);photo.addEventListener("error",()=>{photo.style.display="none";placeholder.hidden=false});document.querySelectorAll(".gallery-grid figure").forEach(fig=>{const img=fig.querySelector("img"),ph=fig.querySelector("div");img.addEventListener("load",()=>ph.hidden=true);img.addEventListener("error",()=>{img.style.display="none";ph.hidden=false})});function updateCountdown(){let d=PARTY_DATE-new Date();if(d<=0)return;const days=Math.floor(d/86400000);d%=86400000;const hours=Math.floor(d/3600000);d%=3600000;const minutes=Math.floor(d/60000),seconds=Math.floor((d%60000)/1000);byId("days").textContent=days;byId("hours").textContent=String(hours).padStart(2,"0");byId("minutes").textContent=String(minutes).padStart(2,"0");byId("seconds").textContent=String(seconds).padStart(2,"0")}updateCountdown();setInterval(updateCountdown,1000);const menu=document.querySelector(".menu-toggle"),nav=byId("nav-links");menu.addEventListener("click",()=>nav.classList.toggle("open"));byId("keepsake-form").addEventListener("submit",e=>{e.preventDefault();if(byId("keepsake-password").value.trim().toLowerCase()===FAMILY_WORD.toLowerCase()){byId("keepsake-lock").hidden=true;byId("keepsake-content").hidden=false;sessionStorage.setItem("reiKeepsakeOpen","yes")}else alert("That family word did not match.")});if(sessionStorage.getItem("reiKeepsakeOpen")==="yes"){byId("keepsake-lock").hidden=true;byId("keepsake-content").hidden=false}window.addEventListener("load",()=>setTimeout(()=>byId("intro").classList.add("hidden"),2200));
+const PARTY_DATE = new Date("2026-08-30T10:30:00-04:00");
+
+const GOOGLE_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSctMRaAeqamwpqPuujU9UXHMcq75nigv0XMRonyhX6aS77C2g/viewform?usp=sharing&ouid=117808659673557743123";
+
+const TEXT_MESSAGE_URL = "sms:+4844479344";
+
+const AMAZON_WISHLIST_URL =
+  "https://www.amazon.com/registries/gl/guest-view/2M1QA4N4GXYK2?ref_=cm_sw_r_cp_ud_ggr-subnav-share_F1T2PF900QRPXZ183YT4";
+
+const GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=Charlestown+Township+Park+Phoenixville+PA";
+
+const FAMILY_WORD = "voyage3";
+
+const byId = (id) => document.getElementById(id);
+
+/**
+ * Activates a button when a URL has been provided.
+ */
+function activateLink(id, url) {
+  const element = byId(id);
+
+  if (!element || !url) {
+    return;
+  }
+
+  element.href = url;
+  element.classList.remove("disabled-link");
+  element.removeAttribute("aria-disabled");
+}
+
+activateLink("form-button", GOOGLE_FORM_URL);
+activateLink("text-button", TEXT_MESSAGE_URL);
+activateLink("wishlist-button", AMAZON_WISHLIST_URL);
+activateLink("maps-button", GOOGLE_MAPS_URL);
+
+/**
+ * Prevents placeholder buttons from navigating.
+ */
+document.querySelectorAll(".disabled-link").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!link.href || link.getAttribute("href") === "#") {
+      event.preventDefault();
+      alert("This link will be added soon.");
+    }
+  });
+});
+
+/**
+ * Main photo handling.
+ *
+ * The complete/naturalWidth check fixes the issue where the image loads
+ * before JavaScript attaches the load event listener.
+ */
+const photo = byId("rei-photo");
+const placeholder = byId("photo-placeholder");
+
+function showMainPhoto() {
+  if (photo) {
+    photo.style.display = "block";
+  }
+
+  if (placeholder) {
+    placeholder.style.display = "none";
+  }
+}
+
+function showMainPlaceholder() {
+  if (photo) {
+    photo.style.display = "none";
+  }
+
+  if (placeholder) {
+    placeholder.style.display = "flex";
+  }
+}
+
+if (photo && placeholder) {
+  if (photo.complete && photo.naturalWidth > 0) {
+    showMainPhoto();
+  } else {
+    photo.addEventListener("load", showMainPhoto);
+    photo.addEventListener("error", showMainPlaceholder);
+  }
+}
+
+/**
+ * Gallery photo handling.
+ */
+document.querySelectorAll(".gallery-grid figure").forEach((figure) => {
+  const image = figure.querySelector("img");
+  const galleryPlaceholder = figure.querySelector("div");
+
+  if (!image || !galleryPlaceholder) {
+    return;
+  }
+
+  function showGalleryImage() {
+    image.style.display = "block";
+    galleryPlaceholder.style.display = "none";
+  }
+
+  function showGalleryPlaceholder() {
+    image.style.display = "none";
+    galleryPlaceholder.style.display = "flex";
+  }
+
+  if (image.complete && image.naturalWidth > 0) {
+    showGalleryImage();
+  } else {
+    image.addEventListener("load", showGalleryImage);
+    image.addEventListener("error", showGalleryPlaceholder);
+  }
+});
+
+/**
+ * Countdown timer.
+ */
+function updateCountdown() {
+  let distance = PARTY_DATE - new Date();
+
+  if (distance <= 0) {
+    const countdownTitle = document.querySelector("#countdown h2");
+
+    if (countdownTitle) {
+      countdownTitle.textContent =
+        "Today's the day — happy birthday, Rei!";
+    }
+
+    ["days", "hours", "minutes", "seconds"].forEach((id) => {
+      const element = byId(id);
+
+      if (element) {
+        element.textContent = "0";
+      }
+    });
+
+    return;
+  }
+
+  const days = Math.floor(distance / 86400000);
+  distance %= 86400000;
+
+  const hours = Math.floor(distance / 3600000);
+  distance %= 3600000;
+
+  const minutes = Math.floor(distance / 60000);
+  const seconds = Math.floor((distance % 60000) / 1000);
+
+  if (byId("days")) {
+    byId("days").textContent = days;
+  }
+
+  if (byId("hours")) {
+    byId("hours").textContent = String(hours).padStart(2, "0");
+  }
+
+  if (byId("minutes")) {
+    byId("minutes").textContent = String(minutes).padStart(2, "0");
+  }
+
+  if (byId("seconds")) {
+    byId("seconds").textContent = String(seconds).padStart(2, "0");
+  }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/**
+ * Mobile navigation.
+ */
+const menu = document.querySelector(".menu-toggle");
+const navigation = byId("nav-links");
+
+if (menu && navigation) {
+  menu.addEventListener("click", () => {
+    const isOpen = navigation.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navigation.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navigation.classList.remove("open");
+      menu.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+/**
+ * Keepsake access screen.
+ */
+const keepsakeForm = byId("keepsake-form");
+
+if (keepsakeForm) {
+  keepsakeForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const passwordInput = byId("keepsake-password");
+    const enteredWord = passwordInput
+      ? passwordInput.value.trim()
+      : "";
+
+    if (enteredWord.toLowerCase() === FAMILY_WORD.toLowerCase()) {
+      const lock = byId("keepsake-lock");
+      const content = byId("keepsake-content");
+
+      if (lock) {
+        lock.hidden = true;
+      }
+
+      if (content) {
+        content.hidden = false;
+      }
+
+      sessionStorage.setItem("reiKeepsakeOpen", "yes");
+    } else {
+      alert("That family word did not match.");
+    }
+  });
+}
+
+if (sessionStorage.getItem("reiKeepsakeOpen") === "yes") {
+  const lock = byId("keepsake-lock");
+  const content = byId("keepsake-content");
+
+  if (lock) {
+    lock.hidden = true;
+  }
+
+  if (content) {
+    content.hidden = false;
+  }
+}
+
+/**
+ * Opening animation.
+ */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const intro = byId("intro");
+
+    if (intro) {
+      intro.classList.add("hidden");
+    }
+  }, 2200);
+});

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b6f75" />
+  <meta name="description" content="Join us for Rei's Voyage to Three — a tropical birthday adventure!" />
+  <title>Rei's Voyage to Three</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro-wave wave-one"></div>
+    <div class="intro-wave wave-two"></div>
+    <div class="intro-island">🏝️</div>
+    <div class="intro-title">Rei's Voyage to Three</div>
+  </div>
+
+  <header class="hero">
+    <div class="sky-shape sky-one"></div>
+    <div class="sky-shape sky-two"></div>
+
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#top">🌺 Rei's Voyage</a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <div id="nav-links" class="nav-links">
+        <a href="#journey">The Journey</a>
+        <a href="#schedule">Adventure Plan</a>
+        <a href="#rsvp">Join the Voyage</a>
+        <a href="#treasure">Treasure Chest</a>
+      </div>
+    </nav>
+
+    <div id="top" class="hero-content">
+      <p class="eyebrow">A tropical birthday adventure awaits</p>
+      <h1>Rei's Voyage to Three</h1>
+      <p class="hero-subtitle">Set sail with us as Rei celebrates her 3rd birthday!</p>
+
+      <div class="event-pill-row">
+        <span>📅 Sunday, August 30, 2026</span>
+        <span>⏰ 10:30 AM–12:30 PM</span>
+        <span>📍 Pavilion #3</span>
+      </div>
+
+      <div class="hero-buttons">
+        <a class="button primary" href="#rsvp">🌊 Join Rei's Voyage</a>
+        <a class="button secondary" href="#journey">🗺️ View Party Details</a>
+      </div>
+
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <span class="photo-icon">📸</span>
+          <strong>Rei's photo will go here</strong>
+          <small>Replace <code>assets/rei-photo.jpg</code> when ready</small>
+        </div>
+        <img id="rei-photo" src="assets/rei-photo.jpg" alt="Rei" onerror="this.style.display='none';" />
+      </div>
+    </div>
+
+    <div class="ocean">
+      <div class="wave wave-a"></div>
+      <div class="wave wave-b"></div>
+      <div class="wave wave-c"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="countdown" class="section countdown-section">
+      <div class="section-heading">
+        <span class="kicker">The countdown is on</span>
+        <h2>Our voyage begins in…</h2>
+      </div>
+      <div class="countdown-grid" aria-live="polite">
+        <div><strong id="days">--</strong><span>Days</span></div>
+        <div><strong id="hours">--</strong><span>Hours</span></div>
+        <div><strong id="minutes">--</strong><span>Minutes</span></div>
+        <div><strong id="seconds">--</strong><span>Seconds</span></div>
+      </div>
+    </section>
+
+    <section id="journey" class="section">
+      <div class="section-heading">
+        <span class="kicker">The Journey</span>
+        <h2>Everything you need to know</h2>
+        <p>Come celebrate with pizza, cake, playground fun, and a tropical adventure made just for Rei.</p>
+      </div>
+
+      <div class="card-grid">
+        <article class="info-card">
+          <span class="card-icon">📅</span>
+          <h3>Date</h3>
+          <p>Sunday, August 30, 2026</p>
+        </article>
+
+        <article class="info-card">
+          <span class="card-icon">⏰</span>
+          <h3>Time</h3>
+          <p>10:30 AM–12:30 PM</p>
+        </article>
+
+        <article class="info-card">
+          <span class="card-icon">🏝️</span>
+          <h3>Location</h3>
+          <p>Charlestown Township Park<br>Pavilion #3</p>
+        </article>
+
+        <article class="info-card">
+          <span class="card-icon">🍕</span>
+          <h3>Food</h3>
+          <p>Pizza, cake, drinks, and snacks will be provided.</p>
+        </article>
+      </div>
+
+      <div class="map-actions">
+        <a class="button primary" id="maps-button" href="https://www.google.com/maps/search/?api=1&query=Charlestown+Township+Park+PA" target="_blank" rel="noopener">
+          🧭 Find the Island
+        </a>
+      </div>
+    </section>
+
+    <section id="schedule" class="section alt-section">
+      <div class="section-heading">
+        <span class="kicker">Adventure Plan</span>
+        <h2>What the morning may look like</h2>
+        <p>Times are flexible so the kids can enjoy the playground.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item"><span>10:30</span><div><h3>Guests Arrive</h3><p>Welcome aboard and settle in.</p></div></div>
+        <div class="timeline-item"><span>10:45</span><div><h3>Playground Adventure</h3><p>Slides, swings, and island-sized fun.</p></div></div>
+        <div class="timeline-item"><span>11:20</span><div><h3>Pizza & Snacks</h3><p>Refuel before the next adventure.</p></div></div>
+        <div class="timeline-item"><span>11:45</span><div><h3>Cake & Birthday Song</h3><p>Three cheers for Rei!</p></div></div>
+        <div class="timeline-item"><span>12:00</span><div><h3>Presents & Photos</h3><p>A few special moments before farewell.</p></div></div>
+        <div class="timeline-item"><span>12:30</span><div><h3>Voyage Ends</h3><p>Thank you for celebrating with us.</p></div></div>
+      </div>
+    </section>
+
+    <section id="rsvp" class="section rsvp-section">
+      <div class="section-heading">
+        <span class="kicker">Join the Voyage</span>
+        <h2>Please RSVP by August 20</h2>
+        <p>Use the RSVP form or send us a text. Add your links and phone number in <code>script.js</code>.</p>
+      </div>
+
+      <div class="rsvp-buttons">
+        <a id="form-button" class="button primary disabled-link" href="#" aria-disabled="true">📝 RSVP with Google Form</a>
+        <a id="text-button" class="button secondary disabled-link" href="#" aria-disabled="true">📱 Send a Text</a>
+      </div>
+
+      <div class="rsvp-note">
+        <strong>Form suggestions:</strong> guest name, attending status, number of adults, number of children, and food allergies.
+      </div>
+    </section>
+
+    <section id="treasure" class="section alt-section">
+      <div class="section-heading">
+        <span class="kicker">Treasure Chest</span>
+        <h2>Gifts for Rei</h2>
+      </div>
+
+      <div class="gift-card">
+        <span class="gift-icon">🎁</span>
+        <p>
+          Your presence is the greatest gift of all! If you'd like to bring Rei a gift,
+          an Amazon Wishlist will be available here.
+        </p>
+        <a id="wishlist-button" class="button secondary disabled-link" href="#" aria-disabled="true">View Rei's Wishlist</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <span class="kicker">Good to Know</span>
+        <h2>Quick party notes</h2>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>What happens if it rains?</summary>
+          <p>In the event of severe weather, guests will be notified by text about any changes.</p>
+        </details>
+        <details>
+          <summary>Can siblings come?</summary>
+          <p>Please include every adult and child attending in your RSVP so we can plan enough food and seating.</p>
+        </details>
+        <details>
+          <summary>What should we bring?</summary>
+          <p>Just bring yourselves and come ready for a fun morning at the park.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-flower">🌺</div>
+    <h2>We can't wait to celebrate with you!</h2>
+    <p>See you on Rei's Voyage to Three.</p>
+    <small>Island-inspired birthday design • Made with love for Rei</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

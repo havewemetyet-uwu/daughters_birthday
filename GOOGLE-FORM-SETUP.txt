@@ -1,0 +1,49 @@
+GOOGLE FORM SETUP — REI'S VOYAGE TO THREE
+
+Form title:
+Rei's Voyage to Three RSVP
+
+Form description:
+Please RSVP by August 20, 2026. We can't wait to celebrate Rei's 3rd birthday with you!
+
+Recommended questions:
+
+1. Guest or family name
+   Type: Short answer
+   Required: Yes
+
+2. Will you be joining Rei's voyage?
+   Type: Multiple choice
+   Options:
+   - Yes, we'll be there!
+   - Maybe
+   - Sorry, we can't make it
+   Required: Yes
+
+3. Number of adults attending
+   Type: Dropdown
+   Options: 0 through 10
+   Required: Yes
+
+4. Number of children attending
+   Type: Dropdown
+   Options: 0 through 10
+   Required: Yes
+
+5. Names and ages of children attending
+   Type: Paragraph
+   Required: No
+
+6. Food allergies or other notes
+   Type: Paragraph
+   Required: No
+
+Recommended settings:
+- Collect email addresses: Optional
+- Limit to one response: OFF (this avoids requiring a Google account)
+- Allow response editing: ON
+- Confirmation message:
+  "You're officially part of Rei's Voyage to Three! We can't wait to celebrate with you."
+
+Link the form to a Google Sheet:
+Responses tab > Link to Sheets

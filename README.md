@@ -10,3 +10,6 @@ Upload the contents of this folder to the root of the GitHub Pages repository.
 - Countdown, RSVP, text, wishlist, and map links
 
 Keep Rei's photo at `assets/rei-photo.jpg`.
+
+
+V4 Treasure Chest update: tap the chest to reveal Rei's clothing size (3T), shoe size (7), and Amazon Wishlist button.

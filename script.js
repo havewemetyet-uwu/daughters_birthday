@@ -172,6 +172,31 @@ sparkleShells.forEach((shell) => {
 });
 
 
+/* Treasure chest reveal */
+const treasureChest = byId("treasure-chest");
+const treasureReveal = byId("treasure-reveal");
+
+if (treasureChest && treasureReveal) {
+  treasureChest.addEventListener("click", () => {
+    const isOpen = treasureChest.getAttribute("aria-expanded") === "true";
+    treasureChest.setAttribute("aria-expanded", String(!isOpen));
+    treasureChest.classList.toggle("is-open", !isOpen);
+    treasureReveal.hidden = isOpen;
+
+    const label = treasureChest.querySelector(".chest-label");
+    if (label) {
+      label.textContent = isOpen
+        ? "Tap to open Rei's treasure chest"
+        : "Tap to close Rei's treasure chest";
+    }
+
+    if (!isOpen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      treasureReveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  });
+}
+
+
 window.addEventListener("load", () => {
   setTimeout(() => {
     const intro = byId("intro");

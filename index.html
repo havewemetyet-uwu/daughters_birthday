@@ -148,11 +148,38 @@
     <div class="island-divider" aria-hidden="true"><span>🌊</span><button class="sparkle-shell" type="button" aria-label="Make the seashell sparkle" title="Hover or tap the shell">🐚</button><span>🌺</span><button class="sparkle-shell" type="button" aria-label="Make the seashell sparkle" title="Hover or tap the shell">🐚</button><span>🌊</span></div>
 
     <section id="treasure" class="section alt">
-      <div class="section-heading"><span class="kicker">Treasure Chest</span><h2>A little something for Rei</h2></div>
-      <div class="panel">
-        <div class="big-icon">🎁</div>
-        <p>Your presence is the greatest gift of all. For anyone who would like ideas, Rei's Amazon Wishlist is linked below.</p>
-        <a id="wishlist-button" class="button secondary disabled-link" href="#" target="_blank" rel="noopener">View Rei's Wishlist</a>
+      <div class="section-heading">
+        <span class="kicker">Rei's Treasure Chest</span>
+        <h2>A few helpful gift clues</h2>
+      </div>
+
+      <div class="panel treasure-panel">
+        <p>Your presence is the greatest gift of all. Guests looking for ideas can open Rei's treasure chest for her current sizes and wishlist.</p>
+
+        <button id="treasure-chest" class="treasure-chest" type="button" aria-expanded="false" aria-controls="treasure-reveal">
+          <span class="chest-sparkles" aria-hidden="true">✨</span>
+          <span class="chest-emoji" aria-hidden="true">🧰</span>
+          <span class="chest-label">Tap to open Rei's treasure chest</span>
+        </button>
+
+        <div id="treasure-reveal" class="treasure-reveal" hidden>
+          <div class="treasure-confetti" aria-hidden="true">✨ 🌺 ✨</div>
+          <h3>Rei's Explorer Guide</h3>
+          <div class="size-grid">
+            <div class="size-card">
+              <span aria-hidden="true">👕</span>
+              <small>Clothing</small>
+              <strong>3T</strong>
+            </div>
+            <div class="size-card">
+              <span aria-hidden="true">👟</span>
+              <small>Shoes</small>
+              <strong>Size 7</strong>
+            </div>
+          </div>
+          <p class="treasure-note">Sizes are current as of the party invitation.</p>
+          <a id="wishlist-button" class="button secondary disabled-link" href="#" target="_blank" rel="noopener">🛒 View Rei's Amazon Wishlist</a>
+        </div>
       </div>
     </section>
   </main>

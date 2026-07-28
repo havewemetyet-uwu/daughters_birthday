@@ -7,3 +7,77 @@ body,.hero,.alt,.countdown-grid div,.card-grid article,.panel,.map-card,.timelin
 body.night-mode{color:#e8f7ff;background:linear-gradient(#071b35,#102b45 65%,#173d55)}body.night-mode .hero{background:radial-gradient(circle at 76% 13%,#ffeaa733 0 7%,transparent 15%),linear-gradient(#071426,#0c2742 58%,#173d55)}body.night-mode .night-sky{opacity:1}body.night-mode .sun-icon{opacity:0;transform:rotate(90deg) scale(.65)}body.night-mode .moon-icon{opacity:1;transform:rotate(0) scale(1)}body.night-mode .sun-toggle{filter:drop-shadow(0 7px 18px #fff4ad66)}body.night-mode .brand,body.night-mode .nav-links a{color:#eaf8ff}body.night-mode h1,body.night-mode .section-heading h2{color:#8ee8ff}body.night-mode h1 span,body.night-mode .eyebrow,body.night-mode .kicker,body.night-mode .countdown-grid strong{color:#ff92c4}body.night-mode .event-pills span{color:#eaf8ff;background:#ffffff18;border:1px solid #ffffff22}body.night-mode .countdown-grid div,body.night-mode .card-grid article,body.night-mode .panel,body.night-mode .timeline article{background:#102f49;color:#eaf8ff;box-shadow:0 20px 50px #0006}body.night-mode .map-card{background:linear-gradient(135deg,#102f49,#123b57);color:#eaf8ff}body.night-mode .alt{background:#0a2136cc}body.night-mode .secondary{color:#bceeff;background:#102f49;border-color:#8ee8ff44}body.night-mode .rsvp-note{color:#bdd7e2}body.night-mode .island-divider::before,body.night-mode .island-divider::after{background:linear-gradient(90deg,transparent,#8ee8ff99,transparent)}body.night-mode .ocean{background:linear-gradient(#0b6c88,#063f64)}body.night-mode .wave{background:#d8f8ff38}body.night-mode footer{background:linear-gradient(135deg,#061a32,#092b49)}body.night-mode .photo-placeholder{color:#17364a;background:linear-gradient(145deg,#b8e6f0,#e6d5ef)}body.night-mode .nav-links{background:#102f49}
 @media(max-width:880px){.sun-toggle{top:84px;right:1rem;width:72px;height:72px;font-size:3.25rem}}@media(max-width:590px){.sun-toggle{top:78px;right:.65rem;width:62px;height:62px;font-size:2.8rem}.night-sky{inset:0 0 210px}}
 @media(prefers-reduced-motion:reduce){.sun-toggle,.sun-icon,.moon-icon,.night-sky span{animation:none!important;transition:none!important}}
+
+
+/* Interactive sparkling seashells */
+.sparkle-shell{
+  position:relative;
+  display:inline-grid;
+  place-items:center;
+  width:2.35rem;
+  height:2.35rem;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  color:inherit;
+  background:transparent;
+  font:inherit;
+  line-height:1;
+  cursor:pointer;
+  transform-origin:center;
+  transition:transform .22s ease,filter .22s ease,background .22s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.sparkle-shell:hover,
+.sparkle-shell:focus-visible,
+.sparkle-shell.is-sparkling{
+  transform:translateY(-2px) rotate(-8deg) scale(1.16);
+  filter:drop-shadow(0 0 8px #fff) drop-shadow(0 0 12px #ffd86a);
+  background:#ffffff45;
+}
+.sparkle-shell:focus-visible{outline:3px solid #087d9b;outline-offset:3px}
+.shell-spark{
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:3;
+  width:.38rem;
+  height:.38rem;
+  border-radius:50%;
+  pointer-events:none;
+  background:#fff;
+  box-shadow:0 0 8px #fff,0 0 14px #ffd86a;
+  transform:translate(-50%,-50%) rotate(var(--spark-angle)) translateY(0) scale(.25);
+  animation:shell-spark-burst .72s ease-out forwards;
+}
+.shell-spark::before,
+.shell-spark::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:2px;
+  height:12px;
+  border-radius:999px;
+  background:#fff8c8;
+  transform:translate(-50%,-50%);
+}
+.shell-spark::after{transform:translate(-50%,-50%) rotate(90deg)}
+@keyframes shell-spark-burst{
+  0%{opacity:0;transform:translate(-50%,-50%) rotate(var(--spark-angle)) translateY(0) scale(.2)}
+  18%{opacity:1}
+  100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--spark-angle)) translateY(-34px) scale(1)}
+}
+body.night-mode .sparkle-shell:hover,
+body.night-mode .sparkle-shell:focus-visible,
+body.night-mode .sparkle-shell.is-sparkling{
+  filter:drop-shadow(0 0 8px #bff6ff) drop-shadow(0 0 15px #8ee8ff);
+  background:#8ee8ff24;
+}
+body.night-mode .sparkle-shell:focus-visible{outline-color:#8ee8ff}
+body.night-mode .shell-spark{box-shadow:0 0 9px #fff,0 0 16px #8ee8ff}
+@media(max-width:590px){.sparkle-shell{width:2rem;height:2rem}}
+@media(prefers-reduced-motion:reduce){
+  .sparkle-shell{transition:none!important}
+  .shell-spark{animation-duration:.01ms!important}
+}

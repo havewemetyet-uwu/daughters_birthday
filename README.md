@@ -1,5 +1,12 @@
-# Rei’s Voyage to Three — V4
+# Rei's Voyage to Three — V4
 
-V4 adds an interactive sun/moon theme toggle. Click the sun in the hero to switch the whole invitation into a starry night mode; click the moon to return to daytime. The selected theme is remembered on that device.
+Upload the contents of this folder to the root of the GitHub Pages repository.
 
-Upload the files in this folder to the root of the GitHub Pages repository. Keep Rei’s photo at `assets/rei-photo.jpg`.
+## V4 features
+- Clickable sun/moon day and night mode
+- Animated stars and night colors
+- Hover, focus, or tap the seashells to create sparkles
+- Mobile-friendly navigation and shell interactions
+- Countdown, RSVP, text, wishlist, and map links
+
+Keep Rei's photo at `assets/rei-photo.jpg`.

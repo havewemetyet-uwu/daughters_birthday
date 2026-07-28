@@ -140,6 +140,38 @@ if (themeToggle) {
   });
 }
 
+
+/* Sparkling shell interaction: hover on desktop, tap on mobile, keyboard friendly. */
+const sparkleShells = document.querySelectorAll(".sparkle-shell");
+
+function sparkleShell(shell) {
+  if (!shell || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  shell.classList.remove("is-sparkling");
+  void shell.offsetWidth;
+  shell.classList.add("is-sparkling");
+
+  for (let index = 0; index < 7; index += 1) {
+    const spark = document.createElement("span");
+    spark.className = "shell-spark";
+    spark.style.setProperty("--spark-angle", `${index * (360 / 7)}deg`);
+    spark.style.animationDelay = `${index * 0.025}s`;
+    shell.appendChild(spark);
+    spark.addEventListener("animationend", () => spark.remove(), { once: true });
+  }
+
+  window.setTimeout(() => shell.classList.remove("is-sparkling"), 760);
+}
+
+sparkleShells.forEach((shell) => {
+  shell.addEventListener("pointerenter", () => sparkleShell(shell));
+  shell.addEventListener("click", () => sparkleShell(shell));
+  shell.addEventListener("focus", () => sparkleShell(shell));
+});
+
+
 window.addEventListener("load", () => {
   setTimeout(() => {
     const intro = byId("intro");

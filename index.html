@@ -69,6 +69,21 @@
       </div>
     </div>
 
+    <div class="island-life" aria-hidden="true">
+      <span class="day-creature butterfly butterfly-one">🦋</span>
+      <span class="day-creature butterfly butterfly-two">🦋</span>
+      <span class="night-creature firefly firefly-one">•</span>
+      <span class="night-creature firefly firefly-two">•</span>
+      <span class="night-creature firefly firefly-three">•</span>
+    </div>
+
+    <div class="shoreline" aria-label="Interactive sandy shoreline">
+      <button class="sparkle-shell beach-shell shell-left" type="button" aria-label="Make the beach shell sparkle" title="Hover or tap the shell">🐚</button>
+      <span class="starfish" aria-hidden="true">⭐</span>
+      <span class="sand-x" aria-hidden="true">×</span>
+      <button class="sparkle-shell beach-shell shell-right" type="button" aria-label="Make the beach shell sparkle" title="Hover or tap the shell">🐚</button>
+      <span class="beach-crab" aria-hidden="true">🦀</span>
+    </div>
     <div class="canoe" aria-hidden="true">🛶</div>
     <div class="ocean" aria-hidden="true">
       <div class="wave wave-one"></div>
@@ -158,7 +173,12 @@
 
         <button id="treasure-chest" class="treasure-chest" type="button" aria-expanded="false" aria-controls="treasure-reveal">
           <span class="chest-sparkles" aria-hidden="true">✨</span>
-          <span class="chest-emoji" aria-hidden="true">🧰</span>
+          <span class="chest-art" aria-hidden="true">
+            <span class="chest-lid"><span class="lid-band"></span></span>
+            <span class="chest-glow"></span>
+            <span class="chest-body"><span class="chest-band"></span><span class="chest-lock">◆</span></span>
+            <span class="chest-coins">● ● ●</span>
+          </span>
           <span class="chest-label">Tap to open Rei's treasure chest</span>
         </button>
 

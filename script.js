@@ -6,7 +6,7 @@ const GOOGLE_FORM_URL =
 const TEXT_MESSAGE_URL = "sms:+4844479344";
 
 const AMAZON_WISHLIST_URL =
-  "https://www.amazon.com/registries/gl/guest-view/2M1QA4N4GXYK2?ref_=cm_sw_r_cp_ud_ggr-subnav-share_F1T2PF900QRPXZ183YT4";
+  "https://www.amazon.com/hz/wishlist/ls/2N6ROYIU7IG9P?ref_=wl_share";
 
 const GOOGLE_MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Charlestown+Township+Park+Phoenixville+PA";

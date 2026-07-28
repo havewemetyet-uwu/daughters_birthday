@@ -15,3 +15,5 @@ Upload the contents of this folder to the root of the GitHub Pages repository.
 - Mobile-friendly and reduced-motion support
 
 Keep Rei's photo at `assets/rei-photo.jpg`.
+
+Deployment Fresh

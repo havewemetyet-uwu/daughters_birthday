@@ -235,3 +235,18 @@ body.night-mode .wishlist-price{color:#ff92c4}
 
 /* Visual Amazon wishlist cards */
 .wishlist-heading{margin:2rem auto 1.15rem;max-width:640px}.wishlist-heading h3{margin:.2rem 0 .35rem;color:#075985;font-size:2rem}.wishlist-heading p{margin:.2rem 0 0}.wishlist-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.25rem 0}.wishlist-card{display:flex;flex-direction:column;overflow:hidden;border-radius:20px;background:#fff;border:1px solid #087d9b1f;box-shadow:0 12px 28px #04546e1f;text-align:left;transition:transform .22s ease,box-shadow .22s ease}.wishlist-card:hover{transform:translateY(-4px);box-shadow:0 18px 34px #04546e2b}.wishlist-card img{width:100%;height:170px;object-fit:contain;padding:1rem;background:linear-gradient(180deg,#fff,#f7fcff)}.wishlist-card-body{display:flex;flex-direction:column;flex:1;padding:1rem}.wishlist-card h4{margin:0 0 .45rem;color:#075985;font:800 1.05rem/1.25 "Baloo 2",cursive}.wishlist-price{margin:.15rem 0 .85rem;color:#dc3f85;font-weight:900;font-size:1.1rem}.wishlist-item-button{width:100%;min-height:42px;margin-top:auto;padding:.65rem .8rem;font-size:.88rem}.wishlist-more{margin:.3rem .35rem .8rem}.full-wishlist-button{margin:.3rem .35rem .8rem}.wishlist-extra[hidden]{display:none!important}body.night-mode .wishlist-heading h3,body.night-mode .wishlist-card h4{color:#8ee8ff}body.night-mode .wishlist-card{background:#102f49;border-color:#8ee8ff26;box-shadow:0 12px 28px #0005}body.night-mode .wishlist-card img{background:linear-gradient(180deg,#173d55,#102f49)}body.night-mode .wishlist-price{color:#ff92c4}@media(max-width:760px){.wishlist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.wishlist-grid{grid-template-columns:1fr}.wishlist-card img{height:190px}.wishlist-more,.full-wishlist-button{width:100%;margin:.35rem 0}}@media(prefers-reduced-motion:reduce){.wishlist-card{transition:none!important}}
+
+
+/* Automatic wishlist gift status */
+.wishlist-sync-note{margin:.55rem auto 0;font-size:.88rem;font-weight:800;color:#5b7880}
+.gift-status-badge{display:none;align-self:flex-start;margin:0 0 .6rem;padding:.35rem .65rem;border-radius:999px;background:#fff0b8;color:#754712;font-size:.78rem;font-weight:900;letter-spacing:.03em}
+.wishlist-card.is-gifted{position:relative;opacity:.72;filter:saturate(.7)}
+.wishlist-card.is-gifted .gift-status-badge{display:inline-flex}
+.wishlist-card.is-gifted img{filter:grayscale(.35)}
+.wishlist-card.is-gifted .wishlist-price{text-decoration:line-through;opacity:.68}
+.wishlist-card.is-gifted .wishlist-item-button{display:none}
+.wishlist-card.is-gifted::after{content:"Already gifted 🎉";position:absolute;inset:auto .75rem .75rem .75rem;padding:.65rem .8rem;border-radius:999px;background:#fff8d8;color:#6d4a13;font-weight:900;text-align:center;box-shadow:0 6px 16px #0001}
+.wishlist-card.is-gifted .wishlist-card-body{padding-bottom:4.2rem}
+body.night-mode .wishlist-sync-note{color:#bdd7e2}
+body.night-mode .gift-status-badge,body.night-mode .wishlist-card.is-gifted::after{background:#4e4326;color:#fff0bd}
+@media(max-width:520px){.wishlist-card.is-gifted::after{left:1rem;right:1rem}}
